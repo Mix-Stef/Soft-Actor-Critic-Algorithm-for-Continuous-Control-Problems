@@ -1,1 +1,1 @@
-# Soft-Actor-Critic-SAC-Algorithm-for-Continuous-Control-Problems
+# Soft Actor Critic (SAC) Algorithm for Continuous Control Problems
