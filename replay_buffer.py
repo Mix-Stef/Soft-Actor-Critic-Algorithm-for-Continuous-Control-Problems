@@ -4,7 +4,7 @@ import torch
 
 
 class ReplayBuffer:
-    def __init__(self, mem_size, state_dim, action_dim, batch_size):
+    def __init__(self, mem_size:int, state_dim:int, action_dim:int, batch_size:int) -> None:
         self.mem_size = mem_size
         self.state_dim = state_dim
         self.action_dim = action_dim
@@ -18,9 +18,9 @@ class ReplayBuffer:
         self.truncated_mem = np.zeros(shape=(self.mem_size, 1))
         self.mem_counter = 0
 
-    def memorize(self, state:List[float], action:float, next_state:List[float],
+    def memorize(self, state:List[float], action:List[float], next_state:List[float],
                  reward:float, term:bool, trunc:bool) -> None:
-        # Adds an experience to the memory
+        # Adds an experience to the memory. If the memory if full then return to the start and overwrite
         current_counter = self.mem_counter % self.mem_size
         self.state_mem[current_counter] = state
         self.action_mem[current_counter] = action
@@ -31,7 +31,8 @@ class ReplayBuffer:
         self.mem_counter += 1
 
     def sample_memories(self):
-        #Takes a sample of experiences to use in training
+        #Takes a random sample of experiences (batch_size experiences) to use in training. 
+        #Must also convert them to PyTorch tensors and send them to the GPU.
         indices = np.random.randint(low=0, high=self.mem_size, size=self.batch_size)
         states = torch.tensor(self.state_mem[indices, :],
                               dtype=torch.float32).to(device='cuda')
