@@ -12,6 +12,3 @@ The algorithms utilizes three types of neural networks, the *Value Network*, $V_
 
 * Actor Loss: $$\displaystyle J_{\pi}(\phi) = E_{(s_{t}, a_{t}) \sim D} \big[ \log \pi_{\phi}(a_{t}|s_{t}) - Q_{\theta}(s_{t}, a_{t}) \big]$$ if we do not use the *repametrization trick*. If we reparametrize, then the actor loss becomes: $$\displaystyle J_{\pi}(\phi) = \big[ \log \pi_{\phi}(f_{\phi}(e_{t};s_{t})|s_{t}) - Q_{\theta}(s_{t}, f_{\phi}(e_{t};s_{t})) \big]$$ with $e_{t}$ a random (e.g. Gaussian) noise vector and $f_{\phi}$ some non-linearity, like tanh.
 
-
-
-E_{s_{t} \sim D, e_{t} \sim N} \big[ \log \pi_{\phi}(f_{\phi}(e_{t};s_{t})|s_{t}) - Q_{\theta}(f_{\phi}(e_{t}|s_{t}), a_{t)) \big]
