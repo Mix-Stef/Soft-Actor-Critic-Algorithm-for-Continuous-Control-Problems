@@ -6,7 +6,7 @@ Soft Actor-Critic is a Deep Reinforcement Learning (DRL) algorithm that aims to 
 
 The algorithms utilizes three types of neural networks, the *Value Network*, $V_{\psi}$, the *Target Value Network*, $V_{\bar{\psi}}$, one or more *Critic Networks*, $Q_{\theta}$ and a *Policy (or Actor) Network*, $\pi_{\phi}$. The respecive loss functions are:
 
-* Value Network Loss: $\displaystyle J_{V}(\psi)= E_{s_{t} \sim D} [\frac{1}{2}(V_{\psi}(s_{t}) = E_{a_{t} \sim \pi_{\phi}}[Q_{\theta}(s_{t}, a_{t}) - \log \pi_{\phi}(a_{t}) | s_{t}]) ^ 2]]$
+* Value Network Loss: $\displaystyle J_{V}(\psi)= E_{s_{t} \sim D} [\frac{1}{2}(V_{\psi}(s_{t})  E_{a_{t} \sim \pi_{\phi}}[Q_{\theta}(s_{t}, a_{t}) - \log \pi_{\phi}(a_{t}) | s_{t}]) ^ 2]]$
 
 
 
