@@ -8,5 +8,7 @@ The algorithms utilizes three types of neural networks, the *Value Network*, $V_
 
 * Value Network Loss: $$\displaystyle J_{V}(\psi)= E_{s_{t} \sim D} \big[\frac{1}{2}(V_{\psi}(s_{t}) - E_{a_{t} \sim \pi_{\phi}}[Q_{\theta}(s_{t}, a_{t}) - \log \pi_{\phi}(a_{t} | s_{t}])])^2\big]$$
 
+* Critic Network Loss: $$\displaystyle J_{Q}(\theta) = E_{(s_{t}, a_{t}) \sim D} \big[ \frac{1}{2} \big(Q_{\theta}(s_{t}, a_{t}) - \hat{Q}(s_{t}, a_{t})  \big) ^ 2 \big]$$ where $$\hat{Q}(s_{t}, a_{t}) = r(s_{t}, a_{t}) + \gamma E_{s_{t+1} \sim D} \big[V_{\bar{\psi}}(s_{t+1}) \big]$$
+
 
 
