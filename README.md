@@ -10,7 +10,7 @@ The algorithms utilizes three types of neural networks, the *Value Network*, $V_
 
 * Critic Network Loss: $$\displaystyle J_{Q}(\theta) = E_{(s_{t}, a_{t}) \sim D} \big[ \frac{1}{2} \big(Q_{\theta}(s_{t}, a_{t}) - \hat{Q}(s_{t}, a_{t})  \big) ^ 2 \big]$$ where $$\hat{Q}(s_{t}, a_{t}) = r(s_{t}, a_{t}) + \gamma E_{s_{t+1} \sim D} \big[V_{\bar{\psi}}(s_{t+1}) \big]$$
 
-* Actor Loss: $$\displaystyle J_{\pi}(\phi) = E_{(s_{t}, a_{t}) \sim D} \big[ \log \pi_{\phi}(a_{t}|s_{t}) - Q_{\theta}(s_{t}, a_{t}) \big]$$ if we do not use the *repametrization trick*. If we reparametrize, then the actor loss becomes: $$\displaystyleE_{s_{t} \sim D, e_{t} \sim N} \big[ \log \pi_{\phi}(f_{\phi}(e_{t};s_{t})|s_{t}) - Q_{\theta}(f_{\phi}(e_{t}|s_{t}), a_{t)) \big]$$ with $e_{t}$ a random (e.g. Gaussian) noise vector and $f_{\phi}$ some non-linearity, like tanh.
+* Actor Loss: $$\displaystyle J_{\pi}(\phi) = E_{(s_{t}, a_{t}) \sim D} \big[ \log \pi_{\phi}(a_{t}|s_{t}) - Q_{\theta}(s_{t}, a_{t}) \big]$$ if we do not use the *repametrization trick*. If we reparametrize, then the actor loss becomes: $$\displaystyle E_{s_{t} \sim D, e_{t} \sim N} \big[ \log \pi_{\phi}(f_{\phi}(e_{t};s_{t})|s_{t}) - Q_{\theta}(f_{\phi}(e_{t}|s_{t}), a_{t)) \big]$$ with $e_{t}$ a random (e.g. Gaussian) noise vector and $f_{\phi}$ some non-linearity, like tanh.
 
 
 
