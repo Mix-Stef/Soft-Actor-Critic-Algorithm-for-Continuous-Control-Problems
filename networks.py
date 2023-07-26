@@ -2,6 +2,7 @@ import torch
 from torch.nn import Linear, ReLU
 
 class V_network(torch.nn.Module):
+    #Approximates the V(s) function of Bellman equations
     def __init__(self, num_states, hidden_units_1, hidden_units_2):
         super(V_network, self).__init__()
         self.num_states = num_states
@@ -23,6 +24,7 @@ class V_network(torch.nn.Module):
 
 
 class Q_network(torch.nn.Module):
+    #Approximates the Q(s,a) function of Bellman equations
     def __init__(self, num_states, num_actions, hidden_units_1, hidden_units_2):
         super(Q_network, self).__init__()
         self.num_states = num_states
@@ -44,6 +46,7 @@ class Q_network(torch.nn.Module):
         return x
 
 class Actor_Network(torch.nn.Module):
+    #Approximates the stochastic policy function π 
     def __init__(self, num_states, num_actions, hidden_units_1, hidden_units_2):
         super(Actor_Network, self).__init__()
         self.num_states = num_states
